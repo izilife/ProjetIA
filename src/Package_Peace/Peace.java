@@ -1,5 +1,7 @@
 package Package_Peace;
 
+//je fais un test !
+
 public class Peace implements Joueur{
 
 	@Override
