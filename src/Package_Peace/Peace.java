@@ -9,14 +9,11 @@ public class Peace implements Joueur{
 	String name = "Peace";
 
 	public Peace(){
-		scan = new Scanner(Scanner.in);
+		scan = new Scanner(System.in);
 	}
 
 	public String getNom(){
 		return this.name;	
-	}
-	public void setRole(int r){
-		this.role = r;
 	}
 	@Override
 	public Domino joue() {
