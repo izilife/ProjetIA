@@ -192,58 +192,36 @@ public class Jeu {
 		return true;
 	}
 	
-	
-	 public Joueur jouePartie(){
-
-		 System.out.println("Debut de la partie");
-		 int gagnant = -1;		 
-
-		 while(!estTerminee()){
-
-			 try{
-				 joue();
-
-			 }
-
-			 catch(CoupIllegal e){
-
-			 System.out.println(e);
-
-			 gagnant = it%2;
-
-			 break;
-
-			 }
-
-			 it++;
-
-		 }
-
-		 if (affichageON){
-
-		 	affiche();
-
-		 }
-
-		 gagnant = it%2;
-
-		 if (gagnant == LIGNE){
-
-			 System.out.println("Le gagnant est " + ligne.getName());
-
-			 return ligne;
-
-		 }
-
-		 else{
-
-			 System.out.println("Le gagnant est " + colonne.getName());
-
-			 return colonne;
-
-		 }
-
-	 }
+	public Joueur jouePartie(){
+		System.out.println("Debut de la partie");
+		int gagnant = -1;
+		int tour=0;
+		while (!estTerminee()){
+			try{
+				joue();
+			}
+			catch(CoupIllegal e){
+				System.out.println(e);
+				gagnant = tour%2;
+				break;
+			}
+			it++;
+		}
+		if (affichageON){
+			affiche();
+		}
+		
+		gagnant = tour%2;
+		
+		if (gagnant == LIGNE){
+			System.out.println("Le gagnant est " + ligne.getName());
+			return ligne;
+		}
+		else{
+			System.out.println("Le gagnant est " + colonne.getName());
+			return colonne;
+		}
+	}
 	
 	public void reset(){
 		it =0;
