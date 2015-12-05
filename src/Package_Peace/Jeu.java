@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Vector;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -43,7 +44,7 @@ public class Jeu {
 		if (affichageON){
 			affichage = new JFrame();
 			affichage.setTitle("Jeu");
-			affichage.setSize(300,300); 
+			affichage.setSize(350,350); 
 			affichage.add(new Grillage());
 			affichage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			affichage.setVisible(true);
@@ -202,15 +203,11 @@ public class Jeu {
 
 			 try{
 				 joue();
-
 			 }
-
 			 catch(CoupIllegal e){
 
 			 System.out.println(e);
-
 			 gagnant = it%2;
-
 			 break;
 
 			 }
@@ -230,7 +227,7 @@ public class Jeu {
 		 if (gagnant == LIGNE){
 
 			 System.out.println("Le gagnant est " + ligne.getName());
-
+			 
 			 return ligne;
 
 		 }
@@ -256,12 +253,72 @@ public class Jeu {
 		coupsColonne.clear();
 	}
 	
+	//Fontion d'evaluation
+	public void nb_coup(Domino d, int ligne , int colonne, int n)
+	    {
+	         int cpt1, cpt2, i, j;
+	           
+	         ligne = 0;
+	         colonne = 0;
+	         cpt1 = 0;
+	         cpt2 = 0;
+	         //En ligne
+	         for(i=0;i<8;i++){
+	              cpt1 = 0;
+	              cpt2 = 0;
+	              
+	              //Horizontalement
+	              for(j=0;j<8;j++){
+	                   if(libre[i][j]== false){
+	                        cpt1++;
+	                        cpt2 = 0;
+	      
+	                        if(cpt1 == n){
+	                             ligne++;
+	                        }
+	                   }
+	                   else if(libre[i][j]== true){
+	                        cpt2++;
+	                        cpt1 = 0;
+	      
+	                        if(cpt2 == n){
+	                             colonne++;
+	                        }
+	                   }
+	              }
+	      
+	              cpt1 = 0;
+	              cpt2 = 0;
+	      
+	              //Verticalement
+	              for(j=0;j<8;j++)
+	              {
+	                   if(libre[j][i]== true){
+	                        cpt1++;
+	                        cpt2 = 0;
+	      
+	                        if(cpt1 == n){
+	                             ligne++;
+	                        }
+	                   }
+	                   else if(libre[j][i]== true)
+	                   {
+	                        cpt2++;
+	                        cpt1 = 0;
+	      
+	                        if(cpt2 == n){
+	                             colonne++;	                        }
+	                   }
+	              }
+	         }
+	}
+	
 	public static void main(String[] args){
 		int taille =8;
 		
 		Joueur clavier = new JoueurClavier();
 		Joueur autreClavier = new JoueurClavier();
-		Jeu g = new Jeu(taille,false);
+		Jeu g = new Jeu(taille,true);
 		
 		g.ligne = clavier;
 		g.colonne = autreClavier;
