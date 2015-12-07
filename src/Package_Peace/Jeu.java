@@ -80,7 +80,7 @@ public class Jeu {
 		if (legal(l)){
 			if (tour == LIGNE){
 				coupsLigne.add(l);
-				// on indique à colonne quel coup ligne a joue
+				// on indique à colonne quel coup ligne a joué
 				colonne.update(l);
 				ligne.update(l);
 			}
@@ -307,7 +307,8 @@ public class Jeu {
 	                        cpt1 = 0;
 	      
 	                        if(cpt2 == n){
-	                             colonne++;	                        }
+	                             colonne++;	                        
+	                        }
 	                   }
 	              }
 	         }

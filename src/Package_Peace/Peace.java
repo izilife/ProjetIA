@@ -11,10 +11,6 @@ public class Peace implements Joueur{
 	public Peace(){
 		scan = new Scanner(System.in);
 	}
-
-	public String getNom(){
-		return this.name;	
-	}
 	@Override
 	public Domino joue() {
 		System.out.println("entrez l'extremite du domino");
@@ -43,7 +39,7 @@ public class Peace implements Joueur{
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.name;
 	}
 
 	@Override
