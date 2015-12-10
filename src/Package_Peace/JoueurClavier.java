@@ -17,10 +17,14 @@ public class JoueurClavier implements Joueur{
 		role = r;
 	}
 	
-	public void reset(){}
+	public void reset(){
+		
+	}
 	
 	public void update(Domino l){
 		//A faire
+		
+	
 	}
 	
 	@Override
