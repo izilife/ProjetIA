@@ -51,12 +51,6 @@ public class Peace implements Joueur{
 		// TODO Auto-generated method stub	
 	}
 	
-	public void MinMax(){
-		
-	}
-		
-	public void AlphaBeta(){
-		
-	}
+	
 	
 }

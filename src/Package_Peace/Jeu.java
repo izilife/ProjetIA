@@ -253,65 +253,6 @@ public class Jeu {
 		coupsColonne.clear();
 	}
 	
-	//Fontion d'evaluation
-	public void nb_coup(Domino d, int ligne , int colonne, int n)
-	    {
-	         int cpt1, cpt2, i, j;
-	           
-	         ligne = 0;
-	         colonne = 0;
-	         cpt1 = 0;
-	         cpt2 = 0;
-	         //En ligne
-	         for(i=0;i<8;i++){
-	              cpt1 = 0;
-	              cpt2 = 0;
-	              
-	              //Horizontalement
-	              for(j=0;j<8;j++){
-	                   if(libre[i][j]== false){
-	                        cpt1++;
-	                        cpt2 = 0;
-	      
-	                        if(cpt1 == n){
-	                             ligne++;
-	                        }
-	                   }
-	                   else if(libre[i][j]== true){
-	                        cpt2++;
-	                        cpt1 = 0;
-	      
-	                        if(cpt2 == n){
-	                             colonne++;
-	                        }
-	                   }
-	              }
-	      
-	              cpt1 = 0;
-	              cpt2 = 0;
-	      
-	              //Verticalement
-	              for(j=0;j<8;j++)
-	              {
-	                   if(libre[j][i]== true){
-	                        cpt1++;
-	                        cpt2 = 0;
-	      
-	                        if(cpt1 == n){
-	                             ligne++;
-	                        }
-	                   }
-	                   else if(libre[j][i]== true)
-	                   {
-	                        cpt2++;
-	                        cpt1 = 0;
-	      
-	                        if(cpt2 == n){
-	                             colonne++;	                        }
-	                   }
-	              }
-	         }
-	}
 	
 	public static void main(String[] args){
 		int taille =8;
