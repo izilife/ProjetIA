@@ -1,9 +1,12 @@
 package Package_Peace;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 //je fais un test !
 
 public class Peace implements Joueur{
+	static char c;
 	Scanner scan;
 	int role;
 	String name = "Peace";
@@ -26,7 +29,7 @@ public class Peace implements Joueur{
 
 	@Override
 	public void update(Domino l) {
-		// TODO Auto-generated method stub
+		  
 		
 	}
 
@@ -38,7 +41,6 @@ public class Peace implements Joueur{
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return this.name;
 	}
 
@@ -47,6 +49,60 @@ public class Peace implements Joueur{
 		// TODO Auto-generated method stub	
 	}
 	
-	
-	
+	public Domino move(Domino l) 
+	{
+	    int alpha = -10000;
+	    int beta = 10000;
+	    int meilleurScore = -Integer.MAX_VALUE;
+	    int plyProf;
+	    Peace arbrePeace = new Peace();
+	    Domino meilleurCoup = null;
+	    for(arbrePeace child: arbrePeace.getChildren())
+	    {
+	        if(meilleurCoup == null)
+	        {
+	        	meilleurCoup = child.getState();
+	        }
+	        alpha = Math.max(alpha, miniMax(child, plyProf - 1, alpha, beta));
+	        if(alpha > meilleurCoup)
+	        {
+	        	meilleurCoup = child.getState();
+	            meilleurScore = alpha;
+	        }
+	    }
+	    return meilleurCoup;
+	}
+	public int miniMax(Domino noeudCourant, int profondeur, int alpha, int beta) 
+	{
+	    if(profondeur <= 0 || terminalNoeud(noeudCourant.getState())) 
+	    {
+	        return getHeuristic(noeudCourant.getState());
+	    }
+	    if(noeudCourant.getState().getCurrentPlayer().equals(selfColor))
+	    {
+	        for(arbrePeace child: noeudCourant.getChildren())
+	        {
+	            alpha = Math.max(alpha, miniMax(child, profondeur - 1, alpha, beta));
+
+	            if(alpha >= beta)
+	            {
+	                return beta;
+	            }
+	        }
+	        return alpha;
+	    }
+	    else
+	    {
+	        for(arbrePeace child: noeudCourant.getChildren())
+	        {
+	            beta = Math.min(beta, miniMax(child, profondeur - 1, alpha, beta));
+
+	            if(alpha >= beta)
+	            {
+	                return alpha;
+	            }
+	        }
+	        return beta;
+	    }
+	}
 }
