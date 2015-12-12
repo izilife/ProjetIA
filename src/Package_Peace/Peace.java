@@ -91,10 +91,28 @@ public class Peace implements Joueur{
 	}
 	
 	public int eval(boolean libre[][]){
-		int gagnant, nbreCaseLigne, nbreCaseColonne;
-		return role;
-		
-		
+		int nbreCaseLigne = 0;
+		int	nbreCaseColonne = 0;
+		int i,j;
+		for (i=0;i<8;i++){
+			for(j=0;j<8;j++){
+				if(libre[i][j] && role == Jeu.LIGNE){
+					nbreCaseLigne++;
+				}
+			else{
+				if(libre[i][j] && role == Jeu.COLONNE){
+					nbreCaseColonne++;
+				}
+			 }
+			}
+		}	
+		if(nbreCaseColonne>nbreCaseLigne){
+			return nbreCaseColonne -nbreCaseLigne;
+		}else
+		{
+		return nbreCaseLigne-nbreCaseColonne;
+		}
 	}
 
 }
+
