@@ -30,8 +30,6 @@ public class Jeu {
 	/** ligne et colonne sont les deux joueurs */
 	Joueur ligne;
 	Joueur colonne;
-	/*Joueur Peace*/
-	Joueur peace;
 	
 	public Jeu(int taille, boolean affON){
 		affichageON = affON;
@@ -259,16 +257,16 @@ public class Jeu {
 	public static void main(String[] args){
 		int taille =8;
 		
-		//Joueur clavier = new JoueurClavier();
+		Joueur clavier = new JoueurClavier();
 		//Joueur autreClavier = new JoueurClavier();
 		Joueur peace = new Peace();
-		Joueur autrepeace = new Peace();
+		//Joueur autrepeace = new Peace();
 		Jeu g = new Jeu(taille,true);
 		
 		/*Initialisation des joueurs de Peace*/
 		
 		g.ligne = peace;
-		g.colonne = autrepeace;
+		g.colonne = clavier;
 		g.ligne.setRole(LIGNE);
 		g.colonne.setRole(COLONNE);
 		

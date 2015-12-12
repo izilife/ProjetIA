@@ -1,10 +1,8 @@
 package Package_Peace;
 import java.util.Scanner;
-
 //je fais un test !
 
 public class Peace implements Joueur{
-	static char c;
 	boolean libre[][];
 	Scanner scan;
 	int role;
@@ -12,25 +10,23 @@ public class Peace implements Joueur{
 	
 	public Peace(){}
 
+	
 	@Override
 	public Domino joue() {
-		int i = 0;
-		int j = 0;
-		Domino d =null;
-		for(i=0; i<=7; i++){
-			for (j = 0; j<=7; j++){
+		for(int i=0; i<=7; i++){
+			for (int j = 0; j<=7; j++){
 		if (role == Jeu.LIGNE)
 			return new Domino(new Case(i,j), new Case(i+1,j));
 		else
 			return new Domino(new Case(i,j), new Case(i,j+1));
 	}
   }
-		return d;
+		return null;
+		
 }
 
 	@Override
-	public void update(Domino l) {
-		  
+	 	public void update(Domino l) {
 		
 	}
 
