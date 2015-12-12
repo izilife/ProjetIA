@@ -1,31 +1,32 @@
 package Package_Peace;
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
 
 //je fais un test !
 
 public class Peace implements Joueur{
 	static char c;
+	boolean libre[][];
 	Scanner scan;
 	int role;
 	String name = "Peace";
+	
+	public Peace(){}
 
-	public Peace(){
-		scan = new Scanner(System.in);
-	}
 	@Override
 	public Domino joue() {
-		System.out.println("entrez l'extremite du domino");
-		String l = scan.nextLine();
-		String[] s = l.split(" ");
-		int i = Integer.parseInt(s[0]);
-		int j = Integer.parseInt(s[1]);
+		int i = 0;
+		int j = 0;
+		Domino d =null;
+		for(i=0; i<=7; i++){
+			for (j = 0; j<=7; j++){
 		if (role == Jeu.LIGNE)
 			return new Domino(new Case(i,j), new Case(i+1,j));
 		else
 			return new Domino(new Case(i,j), new Case(i,j+1));
 	}
+  }
+		return d;
+}
 
 	@Override
 	public void update(Domino l) {
@@ -46,7 +47,11 @@ public class Peace implements Joueur{
 
 	@Override
 	public void reset() {
-		// TODO Auto-generated method stub	
+		for( int i=0; i<=7;i++){
+			for(int j=0; j<=7; j++){
+				libre[i][j] = true;
+			}
+		}
 	}
 	
 	public int Max(boolean libre[][], int profondeur){
@@ -55,10 +60,12 @@ public class Peace implements Joueur{
 		if (Jeu.estTermine(libre, role)|| profondeur == 0){
 			return eval(libre);
 		}
-		for (i=0; i<8;i++){
-			for (j=0; j<8; j++){
+		
+		for (i=0; i<=7;i++){
+			for (j=0; j<=7; j++){
 				if(libre[i][j]){
 					role = Jeu.LIGNE;
+					joue();
 					tmp = Min(libre, profondeur - 1);
 					if(tmp > max){
 						max = tmp;
@@ -75,8 +82,8 @@ public class Peace implements Joueur{
 		if (Jeu.estTermine(libre, role)|| profondeur == 0){
 			return eval(libre);
 		}
-		for (i=0; i<8;i++){
-			for (j=0; j<8; j++){
+		for (i=0; i<=7;i++){
+			for (j=0; j<=7; j++){
 				if(libre[i][j]){
 					role = Jeu.COLONNE;
 					tmp = Max(libre, profondeur - 1);
