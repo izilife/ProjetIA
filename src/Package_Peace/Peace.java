@@ -30,8 +30,10 @@ public class Peace implements Joueur{
 
 	@Override
 	public void update(Domino l) {
+		  boolean[][] copieGrille = null;
 		  
-		
+		  copieGrille[l.a.i][l.a.j] = false;
+		  copieGrille[l.b.i][l.b.j] = false;
 	}
 
 	@Override
