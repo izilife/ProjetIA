@@ -25,9 +25,7 @@ public class Peace implements Joueur{
 		
 }
 
-	@Override
 	 	public void update(Domino l) {
-		
 	}
 
 	@Override
