@@ -14,26 +14,23 @@ public class Peace implements Joueur{
 
 	@Override
 	public Domino joue() {
-		int i = 0;
-		int j = 0;
-		Domino d =null;
-		for(i=0; i<=7; i++){
-			for (j = 0; j<=7; j++){
+		for(int i=0; i<=7; i++){
+			for (int j = 0; j<=7; j++){
 		if (role == Jeu.LIGNE)
 			return new Domino(new Case(i,j), new Case(i+1,j));
 		else
 			return new Domino(new Case(i,j), new Case(i,j+1));
 	}
   }
-		return d;
+		return null;
 }
 
 	@Override
 	public void update(Domino l) {
-		  boolean[][] copieGrille = null;
+		  /*boolean[][] copieGrille = null;
 		  
 		  copieGrille[l.a.i][l.a.j] = false;
-		  copieGrille[l.b.i][l.b.j] = false;
+		  copieGrille[l.b.i][l.b.j] = false;*/
 	}
 
 	@Override
