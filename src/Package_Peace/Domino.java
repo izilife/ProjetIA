@@ -13,4 +13,6 @@ public class Domino {
 			b = new Case(yi,yj);
 		}
 
+	
+
 }
