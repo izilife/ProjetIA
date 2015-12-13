@@ -3,46 +3,49 @@ import java.util.Scanner;
 //je fais un test !
 
 public class Peace implements Joueur{
-	boolean libre[][];
+	static boolean[][] libre; 
 	Scanner scan;
 	int role;
 	String name = "Peace";
 	
 	public Peace(){}
-
 	
+	public String getName(){
+		return this.name;
+	}
+
+	static Domino d;
 	@Override
 	public Domino joue() {
+		System.out.println("methode joue de la classe peace !!");
 		for(int i=0; i<=7; i++){
 			for (int j = 0; j<=7; j++){
-		if (role == Jeu.LIGNE)
-			return new Domino(new Case(i,j), new Case(i+1,j));
-		else
-			return new Domino(new Case(i,j), new Case(i,j+1));
+				if (role == Jeu.LIGNE)
+					d = new Domino(new Case(i,j), new Case(i+1,j));
+				else
+					d = new Domino(new Case(i,j), new Case(i,j+1));
+			}
+		}
+		return d;
 	}
-  }
-		return null;
-		
-}
 
-	 	public void update(Domino l) {
+	@Override
+	public void update(Domino l) {		
+		libre[l.a.i][l.a.j] = false;
+		libre[l.b.i][l.b.j] = false;
 	}
 
 	@Override
 	public void setRole(int direction) {
 		role = direction;
-		
 	}
 
-	@Override
-	public String getName() {
-		return this.name;
-	}
-
+	
+	
 	@Override
 	public void reset() {
-		for( int i=0; i<=7;i++){
-			for(int j=0; j<=7; j++){
+		for(int i=0; i<8;i++){
+			for(int j=0; j<8; j++){
 				libre[i][j] = true;
 			}
 		}
@@ -116,4 +119,3 @@ public class Peace implements Joueur{
 	}
 
 }
-
