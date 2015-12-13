@@ -21,12 +21,8 @@ public class JoueurClavier implements Joueur{
 		
 	}
 	
-	public void update(Domino l){
-		//A faire
-		
-	
+	public void update(Domino l) {
 	}
-	
 	@Override
 	public Domino joue() {
 		System.out.println("entrez l'extremite bas gauche du domino");

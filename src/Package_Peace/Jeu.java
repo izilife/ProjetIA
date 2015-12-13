@@ -30,8 +30,6 @@ public class Jeu {
 	/** ligne et colonne sont les deux joueurs */
 	Joueur ligne;
 	Joueur colonne;
-	/*Joueur Peace*/
-	Joueur peace;
 	
 	public Jeu(int taille, boolean affON){
 		affichageON = affON;
