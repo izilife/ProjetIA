@@ -3,7 +3,7 @@ import java.util.Scanner;
 //je fais un test !
 
 public class Peace implements Joueur{
-	static boolean[][] libre; 
+	boolean[][] libre; 
 	Scanner scan;
 	int role;
 	String name = "Peace";
@@ -17,10 +17,9 @@ public class Peace implements Joueur{
 	static Domino d;
 	@Override
 	public Domino joue() {
-		System.out.println("methode joue de la classe peace !!");
-		for(int i=0; i<=7; i++){
-			for (int j = 0; j<=7; j++){
-				if (role == Jeu.LIGNE)
+		for(int i=0; i<8; i++){
+			for(int j=0; j<8; j++){
+				if(role == Jeu.LIGNE)
 					d = new Domino(new Case(i,j), new Case(i+1,j));
 				else
 					d = new Domino(new Case(i,j), new Case(i,j+1));
@@ -44,7 +43,7 @@ public class Peace implements Joueur{
 	
 	@Override
 	public void reset() {
-		for(int i=0; i<8;i++){
+		for(int i=0; i<8; i++){
 			for(int j=0; j<8; j++){
 				System.out.println(i+" "+" "+j);
 				libre[i][j] = true;
