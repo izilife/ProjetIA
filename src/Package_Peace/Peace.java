@@ -46,6 +46,7 @@ public class Peace implements Joueur{
 	public void reset() {
 		for(int i=0; i<8;i++){
 			for(int j=0; j<8; j++){
+				System.out.println(i+" "+" "+j);
 				libre[i][j] = true;
 			}
 		}
